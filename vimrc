@@ -1,3 +1,4 @@
+just for test
 syntax enable
 set cindent
 set tabstop=4
