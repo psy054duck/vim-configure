@@ -6,6 +6,7 @@ set shiftwidth=4
 set hlsearch
 set number
 set expandtab
+
 :inoremap [ []<ESC>i
 :inoremap ( ()<ESC>i
 :inoremap { <c-r>=Curly_brace()<ESC>
@@ -23,22 +24,23 @@ function! SmartClose(c)
         return a:c
     endif
 endfunction
+
 function! Curly_brace()
-	let Current_line = getline(".")
-	let j = 0
-	let i = 0
+    let Current_line = getline(".")
+    let j = 0
+    let i = 0
     let first_word1 = ""
     let first_word2 = ""
     let first_word3 = ""
-	while (Current_line[j] == ' ')
-		let j += 1
+    while (Current_line[j] == ' ')
+	let j += 1
     endwhile
-	while (i < 4)
+    while (i < 4)
         let first_word1 = first_word1 . Current_line[i + j]
         let first_word2 = first_word2 . Current_line[i + j]
         let first_word3 = first_word3 . Current_line[i + j]
         let i += 1
-	endwhile
+    endwhile
     let first_word2 = first_word2 . Current_line[j + 4]
     let first_word3 = first_word3 . Current_line[j + 4]
     let first_word3 = first_word3 . Current_line[j + 5]
